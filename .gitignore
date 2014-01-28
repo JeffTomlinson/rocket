@@ -1,6 +1,25 @@
+# Ignore mac file system.
+.DS_Store
+ 
+# Ignore other version control systems.
+.cvs
+.svn
+.bzrignore
+ 
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
-
+ 
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+ 
+# Ignore default files.
+.htaccess
+ 
+# Ignore search auth files.
+google*.html
+y_key*.html
+BingSiteAuth.xml
+ 
+# Ignore sass-cache files.
+*.sass-cache*
