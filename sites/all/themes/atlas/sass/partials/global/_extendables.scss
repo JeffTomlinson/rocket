@@ -1,0 +1,71 @@
+////////////////////////
+// Extendables Partials
+//
+// All of your extendable classes, ids, and placeholder extendables
+//   should go in this file.
+////////////////////////
+
+.clearfix {
+	@if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *zoom: 1;
+  }
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Placeholder extendables
+//
+// This ruleset won't be rendered on its own:
+// %red {
+//   color: red;
+// }
+//
+// But...
+// .warning {
+//   @extend %red;
+// }
+//
+// ...is compiled to:
+// .warning {
+//   color: red;
+// }
+
+%hidden {
+  @include hidden;
+}
+
+%visuallyhidden {
+  @include visuallyhidden;
+}
+
+%visuallyhidden.focusable {
+  @include visuallyhidden(true);
+}
+
+%invisible {
+  @include invisible;
+}
+
+%constrain-to-parent {
+  max-width: 100%;
+}
+
+%italic {
+  font-style: italic;
+}
+
+%bold {
+  font-weight: bold;
+}
+
+%wireframe {
+  outline: 1px dashed $red;
+}

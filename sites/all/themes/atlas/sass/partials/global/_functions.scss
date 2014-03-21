@@ -1,0 +1,29 @@
+////////////////////////
+// Functions Partials
+//
+// All of your functions should go in this file.
+////////////////////////
+
+@function em($target, $context: $base-font-size) {
+  @if $target == 0 { @return 0 }
+  @return $target / $context * 1em;
+}
+
+@function percent($target, $context) {
+  @if $target == 0 { @return 0 }
+  @if $context == 0 { @return 0 }
+  @return $target / $context * 100%;
+}
+
+// To simulate associative arrays
+// Source: http://hugogiraudel.com/2013/08/12/sass-functions/#mapping
+@function match($haystack, $needle) {
+  @each $item in $haystack {
+    $index: index($item, $needle);
+    @if $index { 
+      $return: if($index == 1, 2, $index);
+      @return nth($item, $return); 
+    }
+  }
+  @return false;
+}

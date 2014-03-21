@@ -1,0 +1,23 @@
+// Spinning icon on hover.
+.icon {
+  @include maki-icon('zoo', 'before', true) {
+    color:  gray;
+  }
+  
+  &:hover:before {
+    color:  red;
+    @include font-icon-spin(1s, 8);
+  }
+}
+
+// Icon list.
+ul.icon-list {
+  @include font-icon-list();
+  
+  li {
+    @include typicons-icon('eye', 'before', true) {
+      @include font-icon-lg();
+      color:  red;
+    }
+  }
+}

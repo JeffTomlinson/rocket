@@ -1,0 +1,48 @@
+ul.pager {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  
+  li {
+    display: inline-block;
+  }
+}
+
+ul.pager-load-more {
+  padding: 0;
+  
+  li {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    list-style: none;
+    
+    a {
+      display: block;
+      background-color: $light-gray;
+      color: $white;
+      padding: 10px;
+    }
+    
+    .ajax-progress {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  }
+}
+
+.js .infinite ul.pager-load-more {
+  li {
+    a {
+      padding: 0;
+      height: 0;
+      visibility: hidden;
+    }
+    
+    .ajax-progress {
+      //display: none;
+      position: relative;
+    }
+  }
+}

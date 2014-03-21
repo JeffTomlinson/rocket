@@ -1,0 +1,90 @@
+////////////////////////////
+// Meteocons
+//
+// http://meteocons.com
+////////////////////////////
+
+@import 'compass/css3/font-face';
+
+@include font-face(
+  'MeteoconsRegular',
+  font-files(
+    'meteocons.woff', woff,
+    'meteocons.ttf', truetype,
+    'meteocons.svg#MeteoconsRegular', svg),
+  'meteocons.eot',
+  normal,
+  normal
+);
+
+// Icon list (corresponds to icon font characters)
+// Note associative arrays will be easier in Sass version 3.3: https://github.com/nex3/sass/issues/642
+$meteocons-icons: (
+  'sunrise'	'\e600',
+  'sun'	'\e601',
+  'moon'	'\e602',
+  'sun2'	'\e603',
+  'windy'	'\e604',
+  'wind'	'\e605',
+  'snowflake'	'\e606',
+  'cloudy'	'\e607',
+  'cloud'	'\e608',
+  'weather'	'\e609',
+  'weather2'	'\e60a',
+  'weather3'	'\e60b',
+  'lines'	'\e60c',
+  'cloud2'	'\e60d',
+  'lightning'	'\e60e',
+  'lightning2'	'\e60f',
+  'rainy'	'\e610',
+  'rainy2'	'\e611',
+  'windy2'	'\e612',
+  'windy3'	'\e613',
+  'snowy'	'\e614',
+  'snowy2'	'\e615',
+  'snowy3'	'\e616',
+  'weather4'	'\e617',
+  'cloudy2'	'\e618',
+  'cloud3'	'\e619',
+  'lightning3'	'\e61a',
+  'sun3'	'\e61b',
+  'moon2'	'\e61c',
+  'cloudy3'	'\e61d',
+  'cloud4'	'\e61e',
+  'cloud5'	'\e61f',
+  'lightning4'	'\e620',
+  'rainy3'	'\e621',
+  'rainy4'	'\e622',
+  'windy4'	'\e623',
+  'windy5'	'\e624',
+  'snowy4'	'\e625',
+  'snowy5'	'\e626',
+  'weather5'	'\e627',
+  'cloudy4'	'\e628',
+  'lightning5'	'\e629',
+  'thermometer'	'\e62a',
+  'compass'	'\e62b',
+  'none'	'\e62c',
+  'Celsius'	'\e62d',
+  'Fahrenheit'	'\e62e'
+);
+
+// For adding icons to elements using CSS pseudo-elements
+// Source: http://jaydenseric.com/blog/fun-with-sass-and-font-icons
+@mixin meteocons-icon($icon: false, $position: 'before', $styles: true) {
+  font-family: 'MeteoconsRegular';
+  
+  // Either a :before or :after pseudo-element, defaulting to :before
+  &:#{$position} {
+    @if $icon {
+      // Icon has been specified
+      content: match($meteocons-icons, $icon);
+    }
+    @if $styles {
+      // Supportive icon styles have been specified
+      @include font-icon-styles();
+    }
+    // Include any extra rules supplied for the pseudo-element
+    @content;
+  }
+}

@@ -1,0 +1,52 @@
+.stripe {
+  width: 100%;
+}
+
+#header,
+#primary-nav,
+#main-prefix,
+#main,
+#main-suffix,
+#footer {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+#header {
+  min-height: 100px;
+}
+
+#primary-nav {
+  position: relative;
+}
+
+#main-prefix {
+  width: 100%;
+  clear: both;
+}
+
+#content,
+#sidebar-first,
+#sidebar-last {
+  @include grid-span (4, 1);
+}
+
+#main,
+#footer {
+  padding: 0 10px;
+}
+
+#content,
+.sidebar {
+  padding: 0 10px;
+  margin: 20px 0;
+}
+
+#main-suffix {
+  width: 100%;
+  clear: both;
+}
+
+#footer {
+  min-height: 100px;
+}

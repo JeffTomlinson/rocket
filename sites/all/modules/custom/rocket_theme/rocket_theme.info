@@ -1,0 +1,7 @@
+name = Rocket Theme
+description = Panels layouts.
+package = Shiny Rocket
+core = 7.x
+php = 5.3
+
+dependencies[] = panels

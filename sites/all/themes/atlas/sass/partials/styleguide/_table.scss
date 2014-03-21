@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  border: none;
+  font-size: 12px;
+}
+
+tbody {
+  border: none;
+}
+
+tr {
+  background-color: $white;
+  
+  &.odd,
+  &.even {
+    padding: 0;
+    border: none;
+    background-color: $white;
+  }
+  &.odd {
+    background-color: $light-gray;
+  }
+}
+
+td {
+  padding: 4px;
+}

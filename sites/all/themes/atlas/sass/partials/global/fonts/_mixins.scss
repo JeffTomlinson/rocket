@@ -1,0 +1,54 @@
+////////////////////////
+// Font Mixins
+////////////////////////
+
+@mixin font-icon-styles {
+  font: {
+    weight: normal;
+    variant: normal;
+    style: normal;
+  }
+  display: inline-block;
+  text-decoration: inherit;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-transform: none;
+  line-height: 1;
+}
+
+@mixin font-icon-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;
+}
+
+@mixin font-icon-list {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-type: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin font-icon-spin($interval: 2s, $steps: false) {
+  display:  inline-block;
+  -webkit-animation: spin $interval infinite linear;
+  -moz-animation: spin $interval infinite linear;
+  -o-animation: spin $interval infinite linear;
+  animation: spin $interval infinite linear;
+  
+  @if $steps {
+    -webkit-animation-timing-function: steps($steps);
+    -moz-animation-timing-function: steps($steps);
+    -o-animation-timing-function: steps($steps);
+    animation-timing-function: steps($steps);
+  }
+}

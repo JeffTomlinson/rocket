@@ -1,0 +1,19 @@
+// Moscone panel layout
+
+.moscone-header,
+.moscone-content,
+.moscone-sidebar,
+.moscone-footer {
+  width: 100%;
+  float: none;
+}
+.moscone-content {
+  @include breakpoint($large) {
+    @include grid-span ($large-grid * 2/3, $large-grid * 1/3 + 1);
+  }
+}
+.moscone-sidebar {
+  @include breakpoint($large) {
+    @include grid-span ($large-grid * 1/3, 1);
+  }
+}

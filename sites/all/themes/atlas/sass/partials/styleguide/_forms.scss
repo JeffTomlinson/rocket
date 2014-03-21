@@ -1,0 +1,118 @@
+/**
+* Form elements: Inputs, buttons, etc.
+*/
+
+form {
+}
+
+fieldset {
+}
+
+legend {
+}
+
+
+label,
+input,
+button,
+select,
+textarea {
+
+}
+
+input,
+textarea {
+  outline-color: $white;
+  padding:  10px;
+  border:  2px solid $light-gray;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+input.form-text {
+  width: 100%;
+  max-width: 475px;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: $form-font-family; // And only set font-family here for those that need it (note the missing label element)
+}
+
+label {
+  
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  background-color: $light-gray;
+  color: $white;
+  border: 2px solid $light-gray;
+  padding: 10px;
+
+  &:hover {
+
+  }
+
+  &:active {
+
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+
+  &:focus {
+
+  }
+}
+
+input[type="checkbox"] {
+
+}
+
+html.js input.form-autocomplete {
+  // Remove the throbber. We will add one after the input using js for better
+  // control.
+  background-image: none;
+}
+
+.autocomplete-throbber {
+  position: relative;
+  margin-left: -30px;
+  top: 5px;
+  display: inline-block;
+  height: 20px;
+  width:  20px;
+  background:  {
+    image: url(../images/circular-20.gif);
+    repeat: no-repeat;
+  }
+  
+  &.throbbing {
+    background-position: 0px -20px;
+  }
+}
+
+#autocomplete {
+  border-color: $light-gray;
+  
+  li {
+    padding: 5px;
+    background-color: rgba($white, 0.9);
+    font-size: 12px;
+    
+    &.selected {
+      background-color: rgba($light-gray, 0.9);
+    }
+  }
+}
+

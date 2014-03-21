@@ -1,0 +1,155 @@
+////////////////////////////
+// Maki
+//
+// https://www.mapbox.com/maki
+////////////////////////////
+
+@import 'compass/css3/font-face';
+
+@include font-face(
+  'maki',
+  font-files(
+    'maki.woff', woff,
+    'maki.ttf', truetype,
+    'maki.svg#maki', svg),
+  'maki.eot',
+  normal,
+  normal
+);
+
+// Icon list (corresponds to icon font characters)
+// Note associative arrays will be easier in Sass version 3.3: https://github.com/nex3/sass/issues/642
+$maki-icons: (
+  'zoo'	'\e600',
+  'wetland'	'\e601',
+  'water'	'\e602',
+  'waste-basket'	'\e603',
+  'warehouse'	'\e604',
+  'village'	'\e605',
+  'triangle-stroked'	'\e606',
+  'triangle'	'\e607',
+  'town-hall'	'\e608',
+  'town'	'\e609',
+  'toilets'	'\e60a',
+  'theatre'	'\e60b',
+  'tennis'	'\e60c',
+  'telephone'	'\e60d',
+  'swimming'	'\e60e',
+  'suitcase'	'\e60f',
+  'star-stroked'	'\e610',
+  'star'	'\e611',
+  'square-stroked'	'\e612',
+  'square'	'\e613',
+  'soccer'	'\e614',
+  'slaughterhouse'	'\e615',
+  'skiing'	'\e616',
+  'shop'	'\e617',
+  'school'	'\e618',
+  'rocket'	'\e619',
+  'roadblock'	'\e61a',
+  'restaurant'	'\e61b',
+  'religious-muslim'	'\e61c',
+  'religious-jewish'	'\e61d',
+  'religious-christian'	'\e61e',
+  'rail-underground'	'\e61f',
+  'rail-metro'	'\e620',
+  'rail-light'	'\e621',
+  'rail-above'	'\e622',
+  'rail'	'\e623',
+  'prison'	'\e624',
+  'post'	'\e625',
+  'polling-place'	'\e626',
+  'police'	'\e627',
+  'playground'	'\e628',
+  'place-of-worship'	'\e629',
+  'pitch'	'\e62a',
+  'pharmacy'	'\e62b',
+  'parking-garage'	'\e62c',
+  'parking'	'\e62d',
+  'park2'	'\e62e',
+  'park'	'\e62f',
+  'oil-well'	'\e630',
+  'music'	'\e631',
+  'museum'	'\e632',
+  'monument'	'\e633',
+  'minefield'	'\e634',
+  'marker-stroked'	'\e635',
+  'marker'	'\e636',
+  'london-underground'	'\e637',
+  'logging'	'\e638',
+  'lodging'	'\e639',
+  'lighthouse'	'\e63a',
+  'library'	'\e63b',
+  'laundry'	'\e63c',
+  'land-use'	'\e63d',
+  'industrial'	'\e63e',
+  'hospital'	'\e63f',
+  'heliport'	'\e640',
+  'heart'	'\e641',
+  'harbor'	'\e642',
+  'hairdresser'	'\e643',
+  'grocery'	'\e644',
+  'golf'	'\e645',
+  'garden'	'\e646',
+  'fuel'	'\e647',
+  'fire-station'	'\e648',
+  'ferry'	'\e649',
+  'fast-food'	'\e64a',
+  'farm'	'\e64b',
+  'entrance'	'\e64c',
+  'emergency-telephone'	'\e64d',
+  'embassy'	'\e64e',
+  'dog-park'	'\e64f',
+  'disability'	'\e650',
+  'danger'	'\e651',
+  'dam'	'\e652',
+  'cross'	'\e653',
+  'cricket'	'\e654',
+  'commercial'	'\e655',
+  'college'	'\e656',
+  'clothing-store'	'\e657',
+  'city'	'\e658',
+  'circle-stroked'	'\e659',
+  'circle'	'\e65a',
+  'cinema'	'\e65b',
+  'chemist'	'\e65c',
+  'cemetery'	'\e65d',
+  'car'	'\e65e',
+  'campsite'	'\e65f',
+  'camera'	'\e660',
+  'cafe'	'\e661',
+  'bus'	'\e662',
+  'building'	'\e663',
+  'bicycle'	'\e664',
+  'beer'	'\e665',
+  'basketball'	'\e666',
+  'baseball'	'\e667',
+  'bar'	'\e668',
+  'bank'	'\e669',
+  'bakery'	'\e66a',
+  'art-gallery'	'\e66b',
+  'america-football'	'\e66c',
+  'alcohol-shop'	'\e66d',
+  'airport'	'\e66e',
+  'airfield'	'\e66f'
+);
+
+// For adding icons to elements using CSS pseudo-elements
+// Source: http://jaydenseric.com/blog/fun-with-sass-and-font-icons
+@mixin maki-icon($icon: false, $position: 'before', $styles: true) {
+  font-family: 'maki';
+  
+  // Either a :before or :after pseudo-element, defaulting to :before
+  &:#{$position} {
+    @if $icon {
+      // Icon has been specified
+      content: match($maki-icons, $icon);
+    }
+    @if $styles {
+      // Supportive icon styles have been specified
+      @include font-icon-styles();
+    }
+    // Include any extra rules supplied for the pseudo-element
+    @content;
+  }
+}
